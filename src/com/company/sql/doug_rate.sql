@@ -27,3 +27,13 @@ select type from doughnut_ratings WHERE location = 'Krispy King' AND rating <> 6
 select type from doughnut_ratings WHERE location = 'Snappy Bagel' OR rating = 6;
 
 delete from doughnut_ratings where location = 'Krispy King' or rating >= 2;
+
+select * from doughnut_ratings where rating != 10;
+
+select * from doughnut_ratings where date < '2007-06-01' or rating > 7;
+
+delete from doughnut_ratings where location = 'Krispy King' and rating <> 6;
+
+delete from doughnut_ratings where location = 'Krispy King' and rating = 3;
+
+update doughnut_ratings set type = 'glazed' where type = 'plain glazed';

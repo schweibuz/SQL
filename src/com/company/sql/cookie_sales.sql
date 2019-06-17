@@ -68,3 +68,108 @@ select first_name, sum(sales) from cookie_sales group by first_name order by sum
 
 
 
+SELECT * FROM cookie_sales;
+
+select first_name, sales from cookie_sales order by first_name;
+
+select sum(sales) from cookie_sales where first_name = 'Nicole';
+
+select first_name, sum(sales) from cookie_sales group by first_name order by sum(sales) DESC;
+
+select first_name, avg(sales) from cookie_sales group by first_name order by avg(sales) desc;
+
+select first_name, max(sales) from cookie_sales group by first_name order by max(sales) desc;
+
+select first_name, min(sales) from cookie_sales group by first_name order by min(sales) asc;
+
+select first_name, count(sale_date) from cookie_sales where sales > 0 group by first_name;
+
+select distinct sale_date from cookie_sales order by sale_date;
+
+select count(distinct sale_date) from cookie_sales;
+
+select first_name, sum(sales) from cookie_sales group by first_name order by sum(sales) desc limit 3;
+
+select first_name, sum(sales) from cookie_sales group by first_name order by sum(sales) desc limit 1,2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

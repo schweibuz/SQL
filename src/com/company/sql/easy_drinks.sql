@@ -69,3 +69,73 @@ select drink_name from easy_drinks where amount1 between '0.0' and '1.5';
 
 select * from easy_drinks where main = 'peach nectar' or main ='soda';
 
+
+select * from easy_drinks;
+
+
+select drink_name from easy_drinks where amount1 >= 1.5;
+
+select * from easy_drinks where main in ('peach nectar', 'soda');
+select * from easy_drinks where main between 'P' and 'T';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

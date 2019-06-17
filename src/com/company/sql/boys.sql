@@ -18,3 +18,28 @@ select b.boy, t.toy from boys as b, toys as t order by boy;
 
 select boys.boy, toys.toy from boys inner join toys group by boy;
 
+
+select * from toys;
+select * from boys;
+
+select t.toy, b.boy from toys as t cross join boys as b;
+
+select boys.boy, toys.toy from boys 
+INNER JOIN toys 
+ON boys.toy_id = toys.toy_id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

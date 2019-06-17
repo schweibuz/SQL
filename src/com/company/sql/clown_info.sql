@@ -46,3 +46,121 @@ update clown_info set gender='M',hair='orange hair',pants='blue suit',hat='huge 
 singing='n',yelling='y',climbing='n',horn='n' where name='mr. hobo';
 
 delete from clown_info where dancing = 'n';
+
+select * from clown_info;
+
+
+
+
+delete from clown_info where last_seen like 'Oaklend%';
+delete from clown_info where activities = 'violin';
+update clown_info set activities = 'violin' where name = 'Mr. Hobo' and last_seen like 'party for%';
+
+select * from clown_info where activities = 'dancing';
+
+insert into clown_info values ('Zippo', 'Millstone Mall', 'F, orange suit, baggy pants', 'dancing, singing');
+
+delete from clown_info where activities = 'dancing';
+
+delete from clown_info where activities = 'dancing,singing';
+
+update clown_info set last_seen = 'Tracy\'s' where name = 'Mr. Hobo' and last_seen like 'Party for%';
+
+update clown_info set activities = 'singing' where name = 'zippo';
+
+delete from clown_info where name = 'bonzo' and last_seen = '';
+
+delete from clown_info where last_seen = 'Tracy\'s' and name like 'mr.%';
+
+delete from clown_info where name ='Sniffles' and activities ='';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

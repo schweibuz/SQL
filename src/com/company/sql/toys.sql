@@ -6,6 +6,8 @@ CREATE TABLE `toys` (
   `toy` varchar(20) default NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+drop table toys;
+
 INSERT INTO `toys` (`toy_id`,`toy`) VALUES ('1','hula hoop');
 INSERT INTO `toys` (`toy_id`,`toy`) VALUES ('2','balsa glider');
 INSERT INTO `toys` (`toy_id`,`toy`) VALUES ('3','toy soldiers');

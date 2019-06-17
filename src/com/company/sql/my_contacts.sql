@@ -1,10 +1,11 @@
 # Dump of table my_contacts
 # ------------------------------------------------------------
-create database gregs_list;
-USE gregs_list;
+create database gregs_list2;
+USE gregs_list2;
 show create table my_contacts;
 DROP TABLE my_contacts;
 SELECT * FROM my_contacts;
+desc my_contacts;
 
 CREATE TABLE `my_contacts` (
   `last_name` varchar(30) ,
@@ -240,6 +241,100 @@ insert into contact_interest (contact_id, interest_id) select mc.contact_id, it.
 (select last_insert_id()) and it.interest = ('fishing');
 
 ALTER TABLE my_contacts ENGINE = InnoDB;
+
+
+
+SELECT * FROM my_contacts; 			#!!!!!!!!!!!!!!!
+
+desc my_contacts;
+
+show create table my_contacts;
+
+alter table my_contacts add column contact_id int not null auto_increment first, add primary key(contact_id);
+
+alter table my_contacts add column phone varchar(10) after first_name;
+
+alter table my_contacts add column city varchar(50) not null, add column state varchar(2) not null;
+
+update my_contacts set state = right(location, 2);
+
+update my_contacts set city = substring_index(location, ',', 1);
+
+alter table my_contacts drop location;
+
+#create table interests
+alter table my_contacts add column interest1 varchar (50) default null, add column interest2 varchar(50) default null, 
+add column interest3 varchar(50) default null, add column interest4 varchar(50) default null;
+select trim(right(interests, (length(interests) - 1 - length(interest1)))) as dfgdfg from my_contacts;
+update my_contacts set interest1 = substring_index(interests, ',', 1);
+update my_contacts set interests = trim(right(interests, (length(interests) - 1 - length(interest1))));
+update my_contacts set interest2 = substring_index(interests, ',', 1);
+update my_contacts set interests = trim(right(interests, (length(interests) - 1 - length(interest2))));
+update my_contacts set interest3 = substring_index(interests, ',', 1);
+update my_contacts set interests = trim(right(interests, (length(interests) - (length(interest3) + 1))));
+update my_contacts set interest4 = substring_index(interests, ',', 1);
+alter table my_contacts drop column interests;
+
+alter table my_contacts add column (prof_id int(11) not null, zip_code int(11) not null, status_id int(11) not null);
+
+update my_contacts mc set prof_id = (select prof_id from profession p where p.mc_prof = mc.profession);
+
+update my_contacts mc set mc.zip_code = (select z.zip_code from zip_code z where z.city = mc.city and mc.state = z.state);
+
+update my_contacts mc set mc.status_id = (select s.status_id from status s where s.status = mc.status);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

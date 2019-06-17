@@ -1,3 +1,150 @@
+
+
+select * from my_contacts;
+
+select last_name, first_name, email, city from my_contacts where city = 'san francisco';
+
+select * from my_contacts where length(first_name) > 3 and city = 'san francisco';
+
+SELECT * from my_contacts where birthday >= '1969-01-01' and '1999-01-01';
+
+select * from my_contacts where phone <> '%1';
+
+select * from my_contacts where interest3 = '';
+
+SELECT * from my_contacts where location like '%CA';
+
+select * from my_contacts where status like '_arr%';
+
+select * from my_contacts where first_name = 'Nigel';
+
+select * from my_contacts 
+where gender = 'F'
+and status = 'single'
+and state = 'TX'
+and seeking like '%single M%'
+and birthday > '1970-08-28'
+and birthday < '1980-08-28'
+and interests like '%animals%' or 'movies';
+
+select * from my_contacts where first_name = 'Regis';
+
+select * from my_contacts
+where gender = 'F'
+and state = 'MA'
+and seeking like '%single M%'
+and status = 'single'
+and birthday > '1950-03-20'
+and birthday < '1960-03-20';
+
+select substring_index(interests, ',', 1) from my_contacts;
+
+select * from my_contacts 
+where gender = 'F'
+and status = 'single'
+and state = 'MA'
+and seeking like '%single M%'
+and birthday > '1950-08-28'
+and birthday < '1960-08-28'
+and substring_index(interests, ',', 1) = 'animals';
+
+select first_name, last_name, right(email, length(email) - (length(email) - 4)) from my_contacts order by right(email, length(email) - (length(email) - 4));
+
+select * from my_contacts
+where gender = 'M'
+and status = 'single'
+and state = 'MA'
+and seeking like '%single F%'
+and birthday > '1950-08-28'
+and birthday < '1960-08-28'
+and (interest1 = 'animals' or interest2 = 'animals' or interest3 = 'animals' or interest4 = 'animals')
+and (interest1 = 'geocaching' or interest2 = 'geocaching' or interest3 = 'geocaching' or interest4 = 'geocaching')
+and (interest1 = 'trading cards' or interest2 = 'trading cards' or interest3 = 'trading cards' or interest4 = 'trading cards');
+
+select substring('san antonio, tx', 5, 3);
+select upper('asdfasdf');
+select reverse('Hi');
+select ltrim(' dofood ');
+select rtrim(' catfood ');
+select length('san antonio, tx');
+
+SELECT * FROM my_contacts;
+
+select status, profession, interests, seeking from my_contacts;
+select distinct profession from my_contacts;
+select distinct status from my_contacts;
+select distinct interests from my_contacts;
+select distinct seeking from my_contacts;
+
+select mc.first_name, mc.email, p.mc_prof from my_contacts mc inner join profession p on mc.prof_id = p.prof_id;
+select mc.first_name, mc.last_name, s.status from my_contacts mc inner join status s on mc.status_id = s.status_id;
+select mc.first_name, mc.last_name, z.state from my_contacts mc inner join zip_code z on mc.zip_code = z.zip_code;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Nigel query
 select * from my_contacts
 where gender = 'F'

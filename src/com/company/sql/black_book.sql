@@ -23,3 +23,73 @@ select * from black_book where date_name not like 'A%' and date_name not like 'B
 
 select * from black_book where date_name not between 'A' and 'B';
 
+
+select * from black_book where rating not in ('boring', 'plebian', 'fabulous');
+
+select * from black_book where date_name not like 'A%' and date_name not like 'B%';
+
+select * from black_book where  date_name not like 'A%' and date_name not like 'B%';
+
+select * from black_book where date_name not between 'A%' and 'C%';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

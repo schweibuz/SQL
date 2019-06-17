@@ -18,8 +18,6 @@ use gregs_list;
 drop table drink_info;
 use gregs_list;
 
-select * from drink_info;
-
 select drink_name from drink_info where cost >= 3.5 and calories < 50;
 
 select * from drink_info where ice = 'y' and color = 'yellow' and calories >= 33;
@@ -37,6 +35,12 @@ select * from drink_info where calories between 30 and 80;
 select * from drink_info where drink_name like '%z';
 
 select * from drink_info where not carbs between 3 and 5;
+
+select * from drink_info where cost between 2 and 3;
+
+select * from drink_info where color like 'b%';
+
+select * from drink_info where color like'y%' and calories < 35;
 
 select drink_name from drink_info where ice not in ('Y');
 
@@ -58,9 +62,101 @@ insert into drink_info values ('Blackthorn', 3, 8.4, 'gold', 'Y', 33),('Greyhoun
 
 select * from drink_info where color = 'gold';
 
-select * from drink_info where cost = '4.5';
+select * from drink_info where cost = '2.5';
 select * from drink_info where cost = '3.5';
 delete from drink_info where cost = '2.5' or cost = '3.5';
 
 insert into drink_info values ('Oh My Gosh', 4.5, 8.6, 'orange', 'Y', 35),
 ('Lime Fizz', 3.5, 5.4, 'green', 'Y', 24),('Blue Moon', 3.5, 3.2, 'blue', 'Y', 12);
+
+
+
+
+select * from drink_info;
+
+select * from drink_info where calories is null;
+
+select * from drink_info where calories <= 50 and calories >= 20;
+select * from drink_info where calories between 20 and 50;
+select * from drink_info where drink_name between 'G' and 'P';
+
+select * from drink_info where not carbs BETWEEN 3 and 5;
+
+select * from drink_info where  ice != 'Y';
+
+select * from drink_info where calories >= 20;
+
+select * from drink_info where carbs < 3 or carbs > 5;
+
+select * from drink_info where color = 'purple';
+delete from drink_info where color = 'purple';
+insert into drink_info values('Kiss on the Lips',5.5,42.5,'purple','Y',170);
+
+select * from drink_info where color = 'yellow';
+delete from drink_info where color = 'yellow';
+insert into drink_info values('Blackthorn',3,8.4,'gold','Y',33),('Greyhound',4,14,'gold','Y',50);
+
+update drink_info set cost = 3.5 where drink_name = 'Blue Moon';
+
+update drink_info set cost = cost + 1 where drink_name = 'Blue moon' or drink_name = 'Oh my gosh' or drink_name = 'Lime fizz';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
