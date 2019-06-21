@@ -283,59 +283,7 @@ update my_contacts mc set mc.zip_code = (select z.zip_code from zip_code z where
 
 update my_contacts mc set mc.status_id = (select s.status_id from status s where s.status = mc.status);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+alter table my_contacts drop column profession, drop column city, drop column status, drop column state;
 
 
 

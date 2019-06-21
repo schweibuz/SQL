@@ -80,61 +80,17 @@ select mc.first_name, mc.email, p.mc_prof from my_contacts mc inner join profess
 select mc.first_name, mc.last_name, s.status from my_contacts mc inner join status s on mc.status_id = s.status_id;
 select mc.first_name, mc.last_name, z.state from my_contacts mc inner join zip_code z on mc.zip_code = z.zip_code;
 
+select mc.email, p.mc_prof from my_contacts mc natural join profession p;
 
+select mc.first_name, mc.last_name, s.status from my_contacts mc inner join status s on mc.status_id <> s.status_id;
 
+select mc.first_name, mc.last_name, z.state from my_contacts mc natural join zip_code z;
 
+select mc.first_name, mc.last_name, ci.interest_id from my_contacts mc inner join contact_interest ci on mc.contact_id = ci.contact_id order by mc.contact_id;
 
+select * from contact_seeking cross join seeking;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select p.mc_prof from my_contacts mc inner join profession p on mc.prof_id = p.prof_id group by p.mc_prof order by p.mc_prof asc;
 
 
 

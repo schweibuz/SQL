@@ -1,6 +1,6 @@
 # Dump of table boys
 # ------------------------------------------------------------
-
+use gregs_list2;
 CREATE TABLE `boys` (
   `boy_id` int(11) default NULL,
   `boy` varchar(20) default NULL,
@@ -28,18 +28,9 @@ select boys.boy, toys.toy from boys
 INNER JOIN toys 
 ON boys.toy_id = toys.toy_id;
 
+select boys.boy, toys.toy from boys inner join toys on boys.toy_id <> toys.toy_id order by boys.boy;
 
-
-
-
-
-
-
-
-
-
-
-
+select boys.boy, toys.toy from boys natural join toys;
 
 
 

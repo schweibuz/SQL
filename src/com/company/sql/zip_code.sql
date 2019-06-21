@@ -11,6 +11,8 @@ insert into zip_code (city, state) values ('Moscow', 'USSR');
 
 SELECT * FROM zip_code;
 
+select mc.first_name, mc.last_name, z.city, z.state from my_contacts mc natural join zip_code z order by state, first_name;
+
 
 #---------------#---------------#---------------#---------------#---------------#---------------#---------------
 
@@ -24,64 +26,5 @@ status varchar(50) default null
 insert into status(status) select distinct status from my_contacts;
 
 SELECT * FROM status;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
