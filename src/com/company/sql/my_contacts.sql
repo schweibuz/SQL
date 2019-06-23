@@ -67,6 +67,7 @@ INSERT INTO `my_contacts` (`last_name`,`first_name`,`email`,`gender`,`birthday`,
 VALUES ('Ferguson', 'Alexis', 'alexangel@yahoo.com', 'F', '1956-09-19', 'Artist', 'Pflugerville', 'MA', 'single', 'animals', 'single M');
 
 alter table my_contacts add column phone varchar(50) not null after first_name;
+alter table my_contacts change column phone phone varchar(55) after first_name;
 update my_contacts set phone =
 case
 when contact_id = 1 then '(555) 555-1234'

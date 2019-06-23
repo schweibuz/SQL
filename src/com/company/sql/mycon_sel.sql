@@ -92,6 +92,66 @@ select * from contact_seeking cross join seeking;
 
 select p.mc_prof from my_contacts mc inner join profession p on mc.prof_id = p.prof_id group by p.mc_prof order by p.mc_prof asc;
 
+select mc.first_name, mc.last_name, p.mc_prof, jc.title, jc.salary, jd.title, jd.salary_high from (my_contacts mc, profession p, job_current jc) inner join job_desired jd 
+on mc.prof_id = p.prof_id and mc.contact_id = jc.contact_id and mc.contact_id = jd.contact_id;
+
+select mc.first_name, mc.last_name, mc.phone, jc.title from my_contacts mc natural join job_current jc 
+where jc.title in ('Cook', 'Hairdresser', 'Waiter', 'Manager', 'Rancher');
+
+select mc.first_name, mc.last_name, mc.phone, jc.title from my_contacts mc natural join job_current jc where jc.title in (select title from job_listings);
+
+select mc.first_name, mc.last_name from my_contacts mc where zip_code = (select zip_code from zip_code where city = 'Austin' and state = 'TX');
+
+SELECT mc.first_name AS firstname, mc.last_name AS lastname, mc.phone AS phone, jc.title AS jobtitle
+FROM job_current AS jc NATURAL JOIN my_contacts AS mc WHERE jobtitle IN (SELECT title FROM job_listings);
+
+select max(salary) from job_current;
+
+select mc.first_name, mc.last_name, jc.salary from my_contacts mc natural join job_current jc where jc.salary = (select max(jc.salary) from job_current jc);
+
+update job_current set salary = 
+case
+when contact_id like 1 then 75000
+when contact_id like 2 then 79000
+when contact_id like 3 then 73000
+when contact_id like 4 then 71000
+when contact_id like 5 then 70000
+when contact_id like 6 then 55000
+when contact_id like 7 then 88000
+when contact_id like 8 then 99000
+when contact_id like 9 then 83000
+else 66000
+end;
+select * from job_current;
+select * from job_listings;
+select * from my_contacts;
+select * from zip_code natural join my_contacts;
+
+select mc.first_name, mc.last_name, (select state from zip_code where mc.zip_code = zip_code) as state from my_contacts mc;
+
+select mc.first_name, mc.last_name, jc.salary from my_contacts mc natural join job_current jc
+where jc.salary > (select jc.salary from job_current jc natural join my_contacts mc where mc.first_name = 'Maurice');
+
+select avg(salary) from job_current where title = 'Technical Writer';
+
+select mc.first_name, mc.last_name, jc.salary, jc.salary - (select avg(jc.salary) from job_current jc where title = 'Technical Writer') as average 
+from my_contacts mc natural join job_current jc where jc.title = 'Technical Writer';
+
+select mc.first_name, mc.last_name, mc.phone, jc.title from my_contacts mc natural join job_current jc where jc.title in (select title from job_listings);
+
+select mc.first_name, mc.last_name, mc.phone, jc.title from my_contacts mc natural join job_current jc where jc.title not in (select title from job_listings);
+
+select jc.title from job_current jc where jc.salary = (select max(salary) from job_current);
+
+select mc.first_name, mc.last_name from my_contacts mc natural join job_current jc where jc.salary > (select avg(salary) from job_current);
+
+select mc.first_name, mc.last_name, mc.phone, jc.title from my_contacts mc natural join job_current jc
+where jc.title = 'Technical Writer' and mc.zip_code in (select zip from job_listings where title = 'Technical Writer');
+
+select first_name, last_name from my_contacts
+where zip_code in (select mc.zip_code from my_contacts mc natural join job_current jc where jc.salary = (select max(salary) from job_current));
+
+
 
 
 

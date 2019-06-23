@@ -1,20 +1,24 @@
 DROP TABLE job_current;
 
 create table job_current (
-contact_id int(11) not null,
+contact_id int(11) not null primary key,
 title varchar(55) default null,
 salary int not null,
 #start_date timestamp null default current_timestamp
-start_date timestamp
+start_date timestamp,
+constraint job_current_contact_id_fk foreign key (contact_id) references my_contacts(contact_id)
 );
 
+select title from job_listings;
 #insert into job_current values (2, 'title', 1234, current_timestamp());
 
-insert into job_current (contact_id, title, salary, start_date) 
-select mc.contact_id, p.profession, '66600', timestamp('2011-01-01 01:10:22')
-from my_contacts mc 
-join profession p 
-on p.id = mc.prof_id;
+insert into job_current(contact_id, title, salary, start_date)
+select mc.contact_id, p.mc_prof, '66000', timestamp('2011-01-01 01:10:22')
+from my_contacts mc
+inner join profession p
+on p.prof_id = mc.prof_id;
+
+select * from job_current;
 
 START TRANSACTION;
 ROLLBACK;

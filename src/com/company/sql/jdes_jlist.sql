@@ -1,4 +1,5 @@
 DROP TABLE job_desired;
+desc job_desired;
 
 create table job_desired(
 contact_id int(11) not null primary key,
@@ -6,7 +7,8 @@ title varchar(55) default null,
 salary_low int default null,
 salary_high int default null,
 available varchar(55) default null,
-years_exp int(11)
+years_exp int(11),
+constraint job_desired_contact_id_fk foreign key (contact_id) references my_contacts(contact_id)
 );
 
 INSERT INTO job_desired (contact_id, title, salary_low, salary_high, available, years_exp) values(9, 'Web Developer', 95000, 105000, 'true', 5);
@@ -38,6 +40,8 @@ insert into job_listings (title, salary, zip, description) values ('Web Designer
 insert into job_listings (title, salary, zip, description) values ('Technical Writer', 73500, 'NY', 'Write for future start-up');
 
 SELECT * FROM job_listings;
+
+select title from job_listings group by title order by title;
 
 update job_listings set zip = 'Moscow' where title = 'Web Designer';
 
