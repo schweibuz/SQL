@@ -56,9 +56,9 @@ end;
 
 SELECT * FROM job_current order by contact_id;
 
-select mc.id, mc.first_name, mc.last_name, cur.title as profession, cur.salary
+select mc.contact_id, mc.first_name, mc.last_name, cur.title as profession, cur.salary
 from my_contacts mc
-inner join job_current cur on mc.id = cur.contact_id
+inner join job_current cur on mc.contact_.id = cur.contact_id
 where cur.title = 'Web Developer';
 
 

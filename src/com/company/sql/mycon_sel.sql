@@ -151,6 +151,22 @@ where jc.title = 'Technical Writer' and mc.zip_code in (select zip from job_list
 select first_name, last_name from my_contacts
 where zip_code in (select mc.zip_code from my_contacts mc natural join job_current jc where jc.salary = (select max(salary) from job_current));
 
+select mc.first_name, mc.last_name from my_contacts mc where 3 = (select count(*) from contact_interest where contact_id = mc.contact_id);
+
+select mc.first_name firstname, mc.last_name lastname, mc.email email from my_contacts mc 
+where not exists (select * from job_current jc where mc.contact_id = jc.contact_id);
+
+select * from interests;
+select * from contact_interest;
+select * from my_contacts;
+
+select mc.email from my_contacts mc 
+where exists (select * from contact_interest ci where ci.contact_id = mc.contact_id)
+and not exists (select * from job_current jc where jc.contact_id = mc.contact_id);
+
+select mc.first_name, mc.last_name, mc.phone, zp.city, zp.state from my_contacts mc right outer join zip_code zp on mc.zip_code = zp.zip_code;
+
+select count(ct.contact_id) as count, mc.first_name from my_contacts mc join contact_interest ct group by ct.contact_id;
 
 
 

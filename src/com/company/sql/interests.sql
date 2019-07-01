@@ -31,6 +31,8 @@ interest_id int(11) not null,
 constraint my_contacts_contact_id_fk foreign key (contact_id) references my_contacts(contact_id),
 constraint interests_int_id_fk foreign key(interest_id) references interests(interest_id));
 
+desc contact_interest;
+
 insert into contact_interest(contact_id, interest_id) select mc.contact_id, it.interest_id from my_contacts mc, interests it where it.interest like mc.interest1  and interest1 != ''
 union
 select mc.contact_id, it.interest_id from my_contacts mc, interests it where mc.interest2 like it.interest and interest2 != ''
