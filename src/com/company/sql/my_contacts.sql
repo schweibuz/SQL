@@ -285,7 +285,28 @@ update my_contacts mc set mc.zip_code = (select z.zip_code from zip_code z where
 update my_contacts mc set mc.status_id = (select s.status_id from status s where s.status = mc.status);
 
 alter table my_contacts drop column profession, drop column city, drop column status, drop column state;
+alter table my_contacts drop column interest1, drop column interest2, drop column interest3, drop column interest4;
+alter table my_contacts drop column seeking;
 select * from my_contacts;
+
+ desc my_contacts;
+ 
+alter table my_contacts add constraint prof_id_fk foreign key(prof_id) references profession(prof_id),
+add constraint status_id_fk foreign key(status_id) references status(status_id),
+add constraint zip_code_fk foreign key(zip_code) references zip_code(zip_code);
+
+select prof_id from profession where mc_prof = 'teacher';
+select status_id from status where status = 'single';
+select zip_code from zip_code where city = 'Moscow';
+
+insert into my_contacts values(0, 'Murphy', 'Pat', '5551239', 'patmurphy@someemail.com', 'X', '1978-04-15',
+(select prof_id from profession where mc_prof = 'teacher'), 
+(select zip_code from zip_code where city = 'Moscow'),  
+(select status_id from status where status = 'single') );
+
+alter table my_contacts add constraint gender_check check (gender in ('M', 'F'));
+
+
 
 
 

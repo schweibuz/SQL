@@ -168,10 +168,45 @@ select mc.first_name, mc.last_name, mc.phone, zp.city, zp.state from my_contacts
 
 select count(ct.contact_id) as count, mc.first_name from my_contacts mc join contact_interest ct group by ct.contact_id;
 
+ select title from job_current
+ union all	#with duplicates
+ select title from job_desired
+ union all
+ select title from job_listings order by title;
+ 
+ create table my_union as
+ select title from job_current union
+ select title from job_desired union
+ select title from job_listings;
+create table my_union
+select contact_id from job_current union
+select salary from job_listings;
+ select * from my_union;
+ desc my_union;
+ drop table my_union;
+ 
+select mc.first_name, mc.last_name, mc.phone, jc.title
+from job_current jc natural join my_contacts mc
+inner join job_listings jl on jc.title = jl.title;
 
+select title from job_listings where salary = (select max(salary) from job_listings);
 
+select title from job_listings order by salary desc limit 1;
 
+select mc.first_name, mc.last_name from my_contacts mc natural join job_current jc 
+where jc.salary > (select avg(salary) from job_current);
+ 
+select mc.first_name, pr.mc_prof from my_contacts mc join profession pr on mc.prof_id = pr.prof_id;
 
+select count(*) as females from my_contacts where gender = 'F';
+select count(*) as males from my_contacts where gender = 'M';
+select count(*) as total from my_contacts;
+select gender from my_contacts where gender <> 'M' and gender <> 'F';
+
+select * from my_contacts mc natural join profession pr inner join job_desired jd 
+on jd.title = 'Web Designer' and mc.contact_id = (select jd.contact_id where jd.title = 'Web Designer');
+
+select * from job_listings where title = 'Technical Writer';
 
 
 

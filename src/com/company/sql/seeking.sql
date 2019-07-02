@@ -14,6 +14,7 @@ update seeking set seeking = trim(right(seeking, (length(seeking) - 1))) where s
 
 SELECT * FROM seeking;
 
+desc seeking;
 
 
 #---------------#---------------#---------------#---------------#---------------#---------------#---------------
@@ -24,6 +25,8 @@ contact_id int(11) not null,
 seeking_id int(11) not null,
 constraint seeking_my_contacts_contact_id_fk foreign key(contact_id) references my_contacts(contact_id),
 constraint seeking_seeking_seeking_id_fk foreign key(seeking_id) references seeking(seeking_id));
+
+desc contact_seeking;
 
 insert into contact_seeking(contact_id, seeking_id) select mc.contact_id, s.seeking_id from my_contacts mc 
 inner join seeking s 

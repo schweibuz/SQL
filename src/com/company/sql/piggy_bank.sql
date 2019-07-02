@@ -2,12 +2,15 @@ DROP TABLE piggy_bank;
 
 CREATE TABLE  piggy_bank (
 id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-coin CHAR(1) not null,	#coin CHAR(1) CHECK (coin IN ('P', 'N', 'D', 'Q')	   --->		CHECK doesn't work in MySQL engine
+coin CHAR(1) check (coin in ('P', 'N', 'D', 'Q')),	#coin CHAR(1) CHECK (coin IN ('P', 'N', 'D', 'Q')	   --->		CHECK doesn't work in MySQL engine
 coin_year char(4)
-);
+) engine = innodb;
+
 #ALTER table piggy_bank add constraint check1 check(coin in ('P', 'N', 'D', 'Q'));
+DESC piggy_bank;
 
 SELECT * FROM piggy_bank;
+insert into piggy_bank values (0, 'U', '33'); 	#CHECK
 
 INSERT INTO piggy_bank (coin, coin_year) VALUES ('Q', '1950'), ('P','1972'), ('N','2005'), ('Q','1999'), ('Q','1981'), ('D','1940'), ('Q','1980'), ('P','2001'), ('D','1926'), ('P','1999');
 

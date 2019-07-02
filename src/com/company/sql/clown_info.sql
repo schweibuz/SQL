@@ -94,6 +94,10 @@ alter table clown_info drop last_seen, drop appearance, drop activities;
 
 select c1.id, c1.name, c2.name as boss from clown_info c1 inner join clown_info c2 on c1.boss_id = c2.id;
 
+select c1.name, (select name from clown_info where c1.boss_id = id) as boss from clown_info c1;
+
+
+
 select * from clown_info;
 
 delete from clown_info where activities = 'yelling, dancing' and name = 'clarabelle';

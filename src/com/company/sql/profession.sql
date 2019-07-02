@@ -43,9 +43,9 @@ group by mc_prof
 order by mc_prof;
 
 insert into profession (profession) values ('Maniac');
-insert into profession (profession) values ('Web Developer');
-insert into profession (profession) values ('Web Designer');
-insert into profession (profession) values ('Teacher');
+insert into profession (mc_prof) values ('Web Developer');
+insert into profession (mc_prof) values ('Web Designer');
+insert into profession (mc_prof) values ('Teacher');
 
 
 
@@ -75,6 +75,8 @@ order by mc_prof;
  select profession mc_prof from my_contacts mc
  group by mc_prof
  order by mc_prof;
+ 
+ desc profession;
 
 
 

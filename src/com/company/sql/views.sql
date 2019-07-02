@@ -39,8 +39,21 @@ show TABLES;
 
 
 
+create view web_designer as select mc.first_name, mc.last_name, mc.phone, mc.email 
+from my_contacts mc natural join job_desired jd 
+where title = 'Web Designer';
 
+create view tech_writer_jobs as select title, salary, description, zip
+from job_listings
+where title = 'Technical Writer';
 
+select * from web_designer;
+
+SELECT * FROM	#our view
+(SELECT mc.first_name, mc.last_name, mc.phone, mc.email
+FROM my_contacts mc
+inner JOIN job_desired jd on mc.contact_id = jd.contact_id
+WHERE jd.title = 'Web Designer') AS web_designers;
 
 
 
