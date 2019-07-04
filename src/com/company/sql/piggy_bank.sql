@@ -28,7 +28,7 @@ where coin = 'D' WITH CHECK OPTION;		#In MySQL, you can imitate a CHECK CONSTRAI
 select * from pb_dimes;
 drop view pb_dimes;
 
-#nsert into pb_dimes (coin, coin_year) value ('G', '1999');
+#insert into pb_dimes (coin, coin_year) value ('G', '1999');
 #delete from pb_dimes where id = 12;
 
 insert into pb_quarters (coin, coin_year) value ('Q', '1993');
@@ -109,6 +109,24 @@ grant select on my_contacts to hoooy;
 GRANT SELECT ON clown_info TO elsie IDENTIFIED BY '1234qwerty'; 		#We can create user and granted permission with him
 
 
+select * from piggy_bank;
 
+start transaction;
+update piggy_bank set coin = 'Q' where coin = 'P' and coin_year < 1970;
+commit;
 
+start transaction;
+update piggy_bank set coin = 'N' where coin = 'Q';
+rollback;
 
+start transaction;
+update piggy_bank set coin = 'Q' where coin = 'N' and coin_year > 1950;
+rollback;
+
+start transaction;
+update piggy_bank set coin = 'D' where coin = 'Q' and coin_year > 1980;
+commit;
+
+start transaction;
+update piggy_bank set coin = 'P' where coin = 'N' and coin_year > 1970;
+commit;

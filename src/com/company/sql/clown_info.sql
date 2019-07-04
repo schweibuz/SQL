@@ -140,5 +140,44 @@ delete from clown_info where last_seen = 'Tracy\'s' and name like 'mr.%';
 delete from clown_info where name ='Sniffles' and activities ='';
 
 
+set password for 'root'@'localhost' = PASSWORD('100gramm');
+
+create user elsie IDENTIFIED by '50gramm';
+
+grant select on clown_info to elsie with grant option;
+
+revoke GRANT OPTION, select on clown_info from elsie;
+
+grant select on location to elsie;
+grant select on info_location to elsie;
+
+grant select on chores to doc;
+grant delete on talking_animals to sleepy with grant option;
+grant all on chores to sleepy, doc, etc;
+grant select on gregs_list2.* to doc;
+
+revoke select on clown_info from elsie;
+
+#safe SELECT-only status
+grant select, insert, delete on location to elsie;
+revoke insert, delete on locations from elsie;
+
+grant all on clown_info to elsie;
+revoke insert, delete, update on clown_info from elsie;
+
+grant select, insert on activities to elsie;
+revoke insert on activities from elsie;
+
+grant delete, select on info_location to elsie with grant option;
+revoke grant option, delete on info_location from elsie; #cascade
+
+grant insert(location), delete on locaitons to elsie;
+revoke insert(location), delete on locations from elsie;
+
+create role data_entry;
+grant select, insert on clown_info to data_entry;
+grant data_entry to elsie;
+drop role data_entry;
+revoke data_entry from elsie;
 
 

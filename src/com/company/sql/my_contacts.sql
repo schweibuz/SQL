@@ -289,7 +289,7 @@ alter table my_contacts drop column interest1, drop column interest2, drop colum
 alter table my_contacts drop column seeking;
 select * from my_contacts;
 
- desc my_contacts;
+desc my_contacts;
  
 alter table my_contacts add constraint prof_id_fk foreign key(prof_id) references profession(prof_id),
 add constraint status_id_fk foreign key(status_id) references status(status_id),
@@ -305,6 +305,8 @@ insert into my_contacts values(0, 'Murphy', 'Pat', '5551239', 'patmurphy@someema
 (select status_id from status where status = 'single') );
 
 alter table my_contacts add constraint gender_check check (gender in ('M', 'F'));
+
+alter table my_contacts engine = innodb;
 
 
 

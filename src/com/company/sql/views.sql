@@ -55,6 +55,22 @@ FROM my_contacts mc
 inner JOIN job_desired jd on mc.contact_id = jd.contact_id
 WHERE jd.title = 'Web Designer') AS web_designers;
 
+select mc.first_name, mc.last_name, mc.phone, jc.salary from my_contacts mc natural join job_current jc 
+inner join job_desired jd on mc.contact_id = jd.contact_id;
+
+create view diff as
+select jd.salary_low - jc.salary as raise from job_desired jd inner join job_current jc where jc.contact_id = jd.contact_id;
+select * from diff;
+
+create view job_raises as
+select mc.contact_id, mc.first_name, mc.last_name, jc.salary, jd.salary_low, jd.salary_low - jc.salary as raise 
+from my_contacts mc inner join job_current jc inner join job_desired jd 
+where mc.contact_id = jc.contact_id and jc.contact_id = jd.contact_id;
+
+select * from job_raises order by last_name desc;
+
+drop view job_raises;
+
 
 
 

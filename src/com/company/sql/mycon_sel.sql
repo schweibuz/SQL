@@ -208,6 +208,10 @@ on jd.title = 'Web Designer' and mc.contact_id = (select jd.contact_id where jd.
 
 select * from job_listings where title = 'Technical Writer';
 
+desc my_contacts;
+
+
+
 
 
 
